@@ -1,4 +1,4 @@
-# NLP Assistant with Hugging Face Transformers  🤖📚
+# NLP Assistant with Hugging Face 🤖📚
 
 Welcome to the NLP Assistant with Hugging Face Transformers repository! This project is a powerful tool designed to harness the capabilities of Hugging Face Transformers for various Natural Language Processing (NLP) tasks. Combining Python, Flask, HTML, CSS, JavaScript, and the Hugging Face Transformers library, this assistant brings state-of-the-art NLP capabilities to your fingertips.
 
@@ -36,4 +36,4 @@ Contributions are welcome! If you have any ideas for improvements or new feature
 
 ---
 
-Thank you for using the AI NLP Assistant! We hope this tool enhances your experience with Natural Language Processing tasks. Happy coding!
+Thank you for using the NLP Assistant with Hugging Face! We hope this tool enhances your experience with Natural Language Processing tasks. Happy coding!
