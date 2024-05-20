@@ -13,7 +13,7 @@ Welcome to the NLP Assistant with Hugging Face Transformers repository! This pro
 
 ## Getting Started 🛠️
 
-To get started with using the NLP Assistant with Hugging Face Transformers:
+To get started with using the NLP Assistant with Hugging Face:
 
 1. **Clone this repository to your local machine**:
    ```bash
