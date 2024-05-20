@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Text Utilities</title>
+    <script src="../static/script.js" defer></script>
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        flex-direction: column;
+        background-color: #000;
+      }
+      h1 {
+        font-size: 2.5rem;
+        color: #fff;
+        margin-bottom: 1rem;
+      }
+      .container {
+        display: flex;
+        justify-content: space-around;
+        width: 80%;
+        margin: 2rem 0;
+      }
+      .card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        text-align: center;
+        width: 30%;
+        transition: transform 0.3s ease-in-out;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+      .card h2 {
+        font-size: 1.5rem;
+        color: #448aff;
+        margin-bottom: 1rem;
+      }
+      .card p {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 1rem;
+      }
+      .card button {
+        background-color: #448aff;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .card button:hover {
+        background-color: #2b6cb0;
+      }
+      .input-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1rem;
+      }
+      .input-container input {
+        width: 80%;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      .input-container button {
+        background-color: #448aff;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .input-container button:hover {
+        background-color: #2b6cb0;
+      }
+      .output-container {
+        margin-top: 1rem;
+      }
+      .output-container textarea {
+        width: 80%;
+        height: 100px;
+        padding: 0.5rem;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome!</h1>
+    
+    <!-- Text Generator -->
+    <div class="container">
+      <div class="card" id="textGenerator">
+        <h2>Text Generator</h2>
+        <p>Generate random text with our AI model.</p>
+        <button onclick="showInput('textGenerator')">Generate Text</button>
+        <div class="input-container" style="display: none;">
+          <input type="text" id="textGeneratorInput" placeholder="Enter your prompt">
+          <button onclick="generateText('textGenerator')">Generate</button>
+        </div>
+        <div class="output-container" style="display: none;">
+          <textarea id="textGeneratorOutput" readonly></textarea>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Text Translation -->
+    <div class="container">
+      <div class="card" id="textTranslation">
+        <h2>Text Translation</h2>
+        <p>Translate text to French or Urdu with ease.</p>
+        <select name="languages" id="languages">
+          <option value="en-fr">English to French</option>
+          <option value="en-ur">English to Urdu</option>
+        </select>
+        
+        <button onclick="showInput('textTranslation')">Translate Text</button>
+        <div class="input-container" style="display: none;">
+          <input type="text" id="textTranslationInput" placeholder="Enter your text">
+          <button onclick="translateText('textTranslation')">Translate</button>
+        </div>
+        <div class="output-container" style="display: none;">
+          <textarea id="textTranslationOutput" readonly></textarea>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Text Summarization -->
+    <div class="container">
+      <div class="card" id="textSummarization">
+        <h2>Text Summarization</h2>
+        <p>Summarize long text into short paragraphs.</p>
+        <button onclick="showInput('textSummarization')">Summarize Text</button>
+        <div class="input-container" style="display: none;">
+          <input type="text" id="textSummarizationInput" placeholder="Enter your text">
+          <button onclick="summarizeText('textSummarization')">Summarize</button>
+        </div>
+        <div class="output-container" style="display: none;">
+          <textarea id="textSummarizationOutput" readonly></textarea>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Sentiment Analysis -->
+    <div class="container">
+      <div class="card" id="sentimentAnalysis">
+        <h2>Sentiment Analysis</h2>
+        <p>Analyze text sentiment and get insights.</p>
+        <button onclick="showInput('sentimentAnalysis')">Analyze Text</button>
+        <div class="input-container" style="display: none;">
+          <input type="text" id="sentimentAnalysisInput" placeholder="Enter your text">
+          <button onclick="analyzeSentiment('sentimentAnalysis')">Analyze</button>
+        </div>
+        <div class="output-container" style="display: none;">
+          <textarea id="sentimentAnalysisOutput" readonly></textarea>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      function showInput(cardId) {
+        var inputContainer = document.getElementById(cardId).getElementsByClassName('input-container')[0];
+        var outputContainer = document.getElementById(cardId).getElementsByClassName('output-container')[0];
+        inputContainer.style.display = 'flex';
+        outputContainer.style.display = 'none';
+      }
+
+      function generateText(cardId) {
+        var input = document.getElementById(cardId + 'Input').value;
+        // Add your logic to generate text
+        var output = "Generated text: " + input; // Replace with actual output
+        document.getElementById(cardId + 'Output').value = output;
+        document.getElementById(cardId).getElementsByClassName('output-container')[0].style.display = 'block';
+      }
+
+      function translateText(cardId) {
+        var input = document.getElementById(cardId + 'Input').value;
+        var language = document.getElementById('languages').value;
+        // Add your logic to translate text
+        var output = "Translated text: " + input + ", Language: " + language; // Replace with actual output
+        document.getElementById(cardId + 'Output').value = output;
+        document.getElementById(cardId).getElementsByClassName('output-container')[0].style.display = 'block';
+      }
+
+      function summarizeText(cardId) {
+        var input = document.getElementById(cardId + 'Input').value;
+        // Add your logic to summarize text
+        var output = "Summarized text: " + input; // Replace with actual output
+        document.getElementById(cardId + 'Output').value = output;
+        document.getElementById(cardId).getElementsByClassName('output-container')[0].style.display = 'block';
+      }
+
+      function analyzeSentiment(cardId) {
+        var input = document.getElementById(cardId + 'Input').value;
+        // Add your logic to analyze sentiment
+        var output = "Analyzed sentiment for text: " + input; // Replace with actual output
+        document.getElementById(cardId + 'Output').value = output;
+        document.getElementById(cardId).getElementsByClassName('output-container')[0].style.display = 'block';
+      }
+    </script>
+  </body>
+</html>
