@@ -17,8 +17,8 @@ To get started with using the NLP Assistant with Hugging Face:
 
 1. **Clone this repository to your local machine**:
    ```bash
-   git clone https://github.com/yourusername/yourrepository.git
-   cd yourrepository
+   git clone https://github.com/muizz8/NLP_with-_HuggingFace_Transformers
+   cd NLP_with-_HuggingFace_Transformers
    ```
 ---make sure you preinstalled all the requirements.                                                                            
 
